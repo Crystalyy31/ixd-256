@@ -17,6 +17,7 @@ The project is made from cardboard with star shapes cut on all the pieces, and t
 - Tape
   
 ## State diagram
+<img width="1664" alt="Adv int" src="https://github.com/user-attachments/assets/71617561-6e50-4d93-9596-992054e99d44">
 
 ## Code
 ```Python
