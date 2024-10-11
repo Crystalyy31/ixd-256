@@ -22,31 +22,10 @@ The project is made from cardboard with star shapes cut on all the pieces, and t
 ## How it works
 Press the built-in button on M5 Stack Atom3 to light up the starlight, the starlight will turn on blue. Then, put the moon-shaped board on top of the hexagon, and when they successfully contact, the light will gradually fade to purple. If you want the light to turn back to blue, contact the moon-shaped board again with the top of the hexagon. To turn off the light, press the built-in button again. 
 
-## Code
+## Fireware
 ```Python
-import os, sys, io
-import M5
-from M5 import *
-from hardware import *
-import time
 
-M5.begin()
-
-input_pin = Pin(7, mode=Pin.IN, pull=Pin.PULL_UP)
-input2_pin = Pin(41, mode=Pin.IN, pull=Pin.PULL_UP)
-
-#initiate states
-program_state = 'BLUE'
-led_on = False
-button_was_pressed = False
-color_button_was_pressed = False
-
-#rgb setting
-rgb2 = RGB(io=2, n=30, type="SK6812")
-
-def get_rgb_color(r, g, b):
-    return (r << 16) | (g << 8) | b
-
+#turning on and off rgb
 def turn_off_rgb():
     print("Turning off LEDs")
     rgb2.fill_color(0x000000)
@@ -56,7 +35,9 @@ def turn_on_rgb():
     print("Turning on LEDs with initial BLUE color")
     rgb2.fill_color(get_rgb_color(0, 0, 255))
     program_state = 'BLUE'
+```
 
+```Python
 # Toggle between BLUE and PURPLE color
 def change_rgb_color():
     global program_state
@@ -73,7 +54,9 @@ def change_rgb_color():
         for i in range(255):
             rgb2.fill_color(get_rgb_color(255 - i, 0, i))
             time.sleep_ms(5)
+```
 
+```Python
 # Toggle the LED state
 def toggle_led_state():
     global led_on
@@ -82,13 +65,10 @@ def toggle_led_state():
         turn_on_rgb()
     else:
         turn_off_rgb()
+```
 
-while True:
-    M5.update()
-    button_value = input2_pin.value()
-    color_button_value = input_pin.value()
-    time.sleep_ms(100)
-
+```Python
+#loop
     if button_value == 0 and not button_was_pressed:
         toggle_led_state()
         button_was_pressed = True
