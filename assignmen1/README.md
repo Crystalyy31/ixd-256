@@ -19,6 +19,9 @@ The project is made from cardboard with star shapes cut on all the pieces, and t
 ## State diagram
 <img width="1664" alt="Adv int" src="https://github.com/user-attachments/assets/71617561-6e50-4d93-9596-992054e99d44">
 
+## How it works
+Press the built-in button on M5 Stack Atom3 to light up the starlight, the starlight will turn on blue. Then, put the moon-shaped board on top of the hexagon, and when they successfully contact, the light will gradually fade to purple. If you want the light to turn back to blue, contact the moon-shaped board again with the top of the hexagon. To turn off the light, press the built-in button again. 
+
 ## Code
 ```Python
 import os, sys, io
@@ -108,7 +111,6 @@ while True:
     time.sleep_ms(100)
 ```
 ## Final outcome
-![IMG_9705](https://github.com/user-attachments/assets/4e71075c-23fb-46df-be5c-5f8a26ff460e)
 ![IMG_9710](https://github.com/user-attachments/assets/14c604c6-80fb-4387-a6eb-921caed0d54c)
 ![IMG_9712](https://github.com/user-attachments/assets/e0702912-d72c-4b73-ae0a-75412d51964a)
 
