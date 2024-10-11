@@ -21,7 +21,7 @@ The project is made from cardboard with star shapes cut on all the pieces, and t
 
 ## Code
 ```Python
-  import os, sys, io
+import os, sys, io
 import M5
 from M5 import *
 from hardware import *
@@ -32,11 +32,13 @@ M5.begin()
 input_pin = Pin(7, mode=Pin.IN, pull=Pin.PULL_UP)
 input2_pin = Pin(41, mode=Pin.IN, pull=Pin.PULL_UP)
 
+#initiate states
 program_state = 'BLUE'
 led_on = False
 button_was_pressed = False
 color_button_was_pressed = False
 
+#rgb setting
 rgb2 = RGB(io=2, n=30, type="SK6812")
 
 def get_rgb_color(r, g, b):
@@ -52,6 +54,7 @@ def turn_on_rgb():
     rgb2.fill_color(get_rgb_color(0, 0, 255))
     program_state = 'BLUE'
 
+# Toggle between BLUE and PURPLE color
 def change_rgb_color():
     global program_state
     if program_state == 'BLUE':
@@ -68,6 +71,7 @@ def change_rgb_color():
             rgb2.fill_color(get_rgb_color(255 - i, 0, i))
             time.sleep_ms(5)
 
+# Toggle the LED state
 def toggle_led_state():
     global led_on
     led_on = not led_on
@@ -103,3 +107,10 @@ while True:
     
     time.sleep_ms(100)
 ```
+## Final outcome
+![IMG_9705](https://github.com/user-attachments/assets/4e71075c-23fb-46df-be5c-5f8a26ff460e)
+![IMG_9710](https://github.com/user-attachments/assets/14c604c6-80fb-4387-a6eb-921caed0d54c)
+![IMG_9712](https://github.com/user-attachments/assets/e0702912-d72c-4b73-ae0a-75412d51964a)
+
+## Video
+https://drive.google.com/drive/folders/1TwoJVAHyTVnVVu836VBqr0ybMw8AS0N7?usp=drive_link
